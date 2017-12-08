@@ -21,7 +21,7 @@ echo "$HostGroup"
         do
             echo "------------ Deploying on $host -> $service"
 
-        rsync -avizpg -O  --exclude=.git -e "ssh -i /opt/free.pem" --rsync-path="sudo rsync" /opt/$service ec2-user@$host:/var/www/html/
+        rsync -avizpg "-o StrictHostKeyChecking=no"  --exclude=.git -e "ssh -i /opt/free.pem" --rsync-path="sudo rsync" /opt/$service ec2-user@$host:/var/www/html/
 done
 done
 
